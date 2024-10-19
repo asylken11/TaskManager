@@ -1,0 +1,53 @@
+<div class="post-list">
+  <h2>Posts</h2>
+
+  <div
+    *ngFor="let post of posts"
+    class="post-item"
+    [ngClass]="{ 'edit-mode': editMode[post.id], 'view-mode': !editMode[post.id] }"
+    [ngStyle]="editMode[post.id] ? { backgroundColor: '#f0f0f0' } : {}"
+  >
+    <!-- Display mode -->
+    <div *ngIf="!editMode[post.id]">
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.content }}</p>
+      <div class="edit-content-block">
+        <img [src]="post.image_path" alt="Post Image" />
+
+        <!-- Conditionally show edit button -->
+        <button
+          (click)="toggleEditMode(post.id)"
+          [attr.disabled]="editMode[post.id] ? true : null"
+          class="save-btn"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+
+    <!-- Edit mode -->
+    <div *ngIf="editMode[post.id]">
+      <input
+        [value]="editedPost[post.id]?.title"
+        (input)="handleTitleChange(post.id, $event)"
+        placeholder="Edit title"
+        [ngStyle]="{ borderColor: '#00BFFF' }"
+      />
+      <textarea
+        (input)="handleContentChange(post.id, $event)"
+        placeholder="Edit content"
+        [ngClass]="{ 'highlight-textarea': editMode[post.id] }"
+      >
+        {{ editedPost[post.id]?.content }}
+      </textarea>
+
+      <!-- Save and Cancel Buttons -->
+      <button (click)="savePost(post.id)" [ngClass]="{ 'save-btn': true }">
+        Save
+      </button>
+      <button (click)="toggleEditMode(post.id)" [ngClass]="{ 'cancel-btn': true }">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div *ngIf="currentUser" class="profile-container">
+  <h2>My Profile</h2>
+  <p>Username: {{ currentUser.name }}</p>
+  <p>Email: {{ currentUser.email }}</p>
+  
+  <button (click)="logout()">Log Out</button>
+  <button (click)="deleteCurrentUser()" class="btn btn-danger">Delete My Account</button>
+</div>
+
+<div *ngIf="!currentUser" class="no-login-container">
+  <p>You can't login</p>
+  <p>Login please</p>
+</div>

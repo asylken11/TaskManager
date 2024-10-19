@@ -1,0 +1,11 @@
+<h2>Category List</h2>
+
+<ul class="category-list">
+  <li *ngFor="let category of categories" class="category-item">
+    <div class="category-details">
+      <span class="category-id"><strong>ID:</strong> {{ category.id }}</span>
+      <span class="category-name"><strong>Name:</strong> {{ category.name }}</span>
+      <span class="category-rank"><strong>Rank:</strong> {{ category.rank }}</span>
+    </div>
+  </li>
+</ul>

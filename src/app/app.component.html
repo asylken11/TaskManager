@@ -1,0 +1,32 @@
+<header>
+  <div class="container">
+    <h1>My Blog-Task Manager</h1>
+    <nav class="main-nav">
+      <ul>
+        <li>
+          <a routerLink="/profile" routerLinkActive="active">My Profile</a>
+        </li>
+        <li>
+          <a routerLink="/post" routerLinkActive="active">Posts</a>
+        </li>
+        <li>
+          <a routerLink="/comment" routerLinkActive="active">Comments</a>
+        </li>
+        <li>
+          <a routerLink="/category" routerLinkActive="active">Categories</a>
+        </li>
+        <li>
+          <a routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+        <li>
+          <a routerLink="/register" routerLinkActive="active">Registration</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

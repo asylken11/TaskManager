@@ -1,0 +1,194 @@
+
+
+.post-list {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+.post-item {
+  margin-bottom: 20px;
+}
+
+.post-item h2 {
+  margin-bottom: 10px;
+}
+
+.post-item button {
+  margin-right: 10px;
+}
+/* For view and edit modes */
+.edit-mode {
+  border: 2px solid #00ADB5;
+  padding: 15px;
+  background-color: #F9FAFB; /* Soft background for editing */
+  border-radius: 10px; /* Rounded corners for modern feel */
+}
+
+.view-mode {
+  padding: 15px;
+  background-color: #FFFFFF; /* White background for clarity */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for modern card effect */
+}
+
+/* Button styles for a modern, vibrant look */
+button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px); /* Subtle lift effect on hover */
+}
+
+/* Save button - modern green */
+.save-btn {
+  background-color: #00C897;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #009E7F; /* Darker green on hover */
+}
+
+/* Cancel button - modern red */
+.cancel-btn {
+  background-color: #FF6B6B;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #E63946; /* Darker red on hover */
+}
+
+/* Edit button - modern primary color */
+button.edit-btn {
+  background-color: #00ADB5;
+  color: white;
+}
+
+button.edit-btn:hover {
+  background-color: #007F86; /* Darker cyan on hover */
+}
+
+/* Inputs in edit mode */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #F1F5F9;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #00ADB5; /* Focus state with modern cyan */
+  outline: none;
+}
+
+/* Highlight textarea in edit mode */
+.highlight-textarea {
+  background-color: #FAFAFA;
+  border: 2px solid #00C897;
+  border-radius: 8px;
+}
+
+
+.post-item input,
+.post-item textarea {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 5px;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+}
+
+.post-image {
+  padding-top: 50px;
+  width: auto;
+  height: 500px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.post-details {
+  flex-grow: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.post-title {
+  font-size: 1.4em;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.post-content {
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: #555;
+}
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f4f4f4;
+  border-top: 1px solid #f4f4f4;
+}
+
+.post-date,
+.post-rating {
+  font-size: 1em;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.post-rating {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #ff4500;
+}
+.edit-content-block{
+  display:flex;
+  flex-direction:row;
+  justify-content:start;
+  align-items:end;
+  gap:30px;
+
+}
+.edit-content-block .save-btn{
+  font-size:16px;
+  padding:11px 24px;
+  font-weight:600;
+}

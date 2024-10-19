@@ -1,0 +1,13 @@
+<h2>Comments</h2>
+
+<ul class="comment-list">
+  <li *ngFor="let comment of comments" class="comment-item">
+    <div class="comment-details">
+      <span class="comment-id"><strong>ID:</strong> {{ comment.id }}</span>
+      <span class="comment-post-id"><strong>PostID:</strong> {{ comment.post_id }}</span>
+      <span class="comment-user-id"><strong>UserId:</strong> {{ comment.user_id }}</span>
+      <span class="comment-date"><strong>Date:</strong> {{ comment.date }}</span>
+      <span class="comment-body"><strong>Body:</strong> {{ comment.body }}</span>
+    </div>
+  </li>
+</ul>

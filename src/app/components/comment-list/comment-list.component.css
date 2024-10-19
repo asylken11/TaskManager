@@ -1,0 +1,56 @@
+.comment-list {
+    font-family: 'Arial', sans-serif;
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.comment-item:hover {
+    transform: translateY(-5px);
+}
+
+.comment-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-id,
+.comment-post-id,
+.comment-user-id,
+.comment-date,
+.comment-body {
+    margin-bottom: 15px;
+}
+
+.comment-id strong,
+.comment-post-id strong,
+.comment-user-id strong,
+.comment-date strong,
+.comment-body strong {
+    margin-right: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.comment-id,
+.comment-post-id,
+.comment-user-id,
+.comment-date,
+.comment-body {
+    font-size: 1em;
+    color: #555;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
