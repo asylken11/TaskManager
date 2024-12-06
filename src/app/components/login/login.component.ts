@@ -1,42 +1,34 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
+import {catchError} from "rxjs";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginData = {
     email: '',
     password: ''
   };
-  
+
   constructor(
     private authService: AuthService,
     private router: Router
   ) {}
 
-  onSubmit(form: NgForm): void {
-    if (form.valid) {
-      this.authService.login(this.loginData.email, this.loginData.password)
-        .subscribe(
-          data => {
-            this.router.navigate(['/profile']);
-          },
-          error => {
-            alert("Email or Password is not correct ")
-            console.error('Login failed', error);
-          }
-        );
-    }
+  ngOnInit() {
+    localStorage.removeItem('currentUser');
+    this.authService.getMockUsers();
   }
 
-  onRegister(): void {
-    // Навигация на страницу регистрации
-    this.router.navigate(['/register']);
+  onSubmit(form: NgForm): void {
+    if (form.invalid) return;
+
+    this.authService.login(this.loginData.email, this.loginData.password);
   }
 }

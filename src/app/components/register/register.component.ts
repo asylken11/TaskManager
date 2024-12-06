@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -9,26 +9,25 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   registerData = {
     username: '',
     email: '',
     password: ''
   };
 
-  constructor(private authService: AuthService,private router: Router) {}
+  constructor(
+    private authService: AuthService,
+  ) {}
+
+  ngOnInit() {
+    localStorage.removeItem('currentUser');
+    this.authService.getMockUsers();
+  }
 
   onSubmit(form: NgForm): void {
-    if (form.valid) {
-      this.authService.register(this.registerData.username, this.registerData.email, this.registerData.password)
-        .subscribe(
-          data => {
-            this.router.navigate(['/login']);
-          },
-          error => {
-            console.error('Registration failed', error);
-          }
-        );
-    }
+    if (form.invalid) return;
+
+    this.authService.register(this.registerData.username, this.registerData.email, this.registerData.password);
   }
 }

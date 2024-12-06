@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
+import {Router} from "@angular/router";
+import {CurrentUserService} from "../../services/current-user.service";
 
 
 @Component({
@@ -14,8 +16,10 @@ import { AuthService } from '../../services/auth.service';
 export class UserComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private userService: UserService,
-    private authService: AuthService
+  constructor(
+    private userService: UserService,
+    private authService: AuthService,
+    private currentUserService: CurrentUserService,
   ) { }
 
   ngOnInit(): void {
@@ -31,36 +35,16 @@ export class UserComponent implements OnInit {
   }
 
   deleteUser(id: number): void {
-    this.authService.deleteUser(id).subscribe(
-      () => {
-        // Refresh user list or update UI as needed
-        this.users = this.users.filter(user => user.id !== id);
-      },
-      error => {
-        console.error('Delete user failed', error);
-      }
-    );
+    this.authService.deleteUser(id);
   }
 
   deleteCurrentUser(): void {
-    const userId = this.authService.currentUserValue?.id;
-  
+    const userId = this.currentUserService.currentUserValue?.id;
+
     if (userId) {
-      this.authService.deleteUser(userId).subscribe(
-        () => {
-          // After successful deletion, redirect to login or handle accordingly
-          this.authService.logout(); // or navigate to another page
-        },
-        error => {
-          console.error('Delete current user failed', error);
-        }
-      );
+      this.authService.deleteUser(userId);
     } else {
       console.error('No user logged in');
     }
   }
-
-  
-
-
 }

@@ -1,10 +1,42 @@
 <div *ngIf="currentUser" class="profile-container">
   <h2>My Profile</h2>
-  <p>Username: {{ currentUser.name }}</p>
+  <p>Username: {{ currentUser.username }}</p>
   <p>Email: {{ currentUser.email }}</p>
-  
+
   <button (click)="logout()">Log Out</button>
   <button (click)="deleteCurrentUser()" class="btn btn-danger">Delete My Account</button>
+</div>
+
+<div *ngIf="currentUser" class="profile-container">
+  <div class="form-container">
+    <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          formControlName="username"
+          type="text"
+          class="form-control"
+          placeholder="Enter your username"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          class="form-control"
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">
+        Update
+      </button>
+    </form>
+  </div>
 </div>
 
 <div *ngIf="!currentUser" class="no-login-container">

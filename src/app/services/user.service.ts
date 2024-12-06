@@ -7,8 +7,8 @@ import { Observable, of } from 'rxjs';
 })
 export class UserService {
   private users: User[] = [
-    { id: 1, email: 'user1@example.com', name: 'User One', password: 'password1', token: 'token1' },
-    { id: 2, email: 'user2@example.com', name: 'User Two', password: 'password2', token: 'token2' },
+    { id: 1, email: 'user1@example.com', username: 'User One', password: 'password1' },
+    { id: 2, email: 'user2@example.com', username: 'User Two', password: 'password2' },
   ];
 
   constructor() { }
